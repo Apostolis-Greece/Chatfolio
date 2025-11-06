@@ -24,13 +24,13 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
   
 ### User Experience
-- Smooth, controlled page loading using JavaScript and Event Listeners to prevent abrupt visual changes.  
+- **Smooth, controlled page loading:** using JavaScript and Event Listeners to prevent abrupt visual changes.
+- **Responsive Layout:** Compatibility with different screen sizes (i.e. mobiles, tablets, laptops).
+- **Lazy Loading:** while waiting for time-consuming requests to make clients not bored.  
 - Multiple interactive event listeners enhance user engagement.  
 - Beautiful design with CSS animations.  
-- Responsive layout for mobile devices, tablets, and large screens.  
 - Graceful degradation in case JavaScript is disabled in the browser.  
 - Popup elements for enhancing interactivity.
-- Lazy Loading while waiting for time-consuming requests to make clients not bored.  
 
 
 ### Performance
