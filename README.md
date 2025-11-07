@@ -17,7 +17,7 @@ Chatfolio is a full-stack web development portfolio project that is built with s
   - Passwords are salted and hashed iteratively to protect against `Rainbow Table attacks`.  
   - Users with identical passwords will have distinct hashes stored in the database.  
 - **Database & Filesystem Sync:** Media files are consistently synchronized with the database to ensure integrity.
--**Secure HTTPS Redirections:** Sensitive requests are enforced to use HTTPS to guarantee encrypted and secure data transfer.
+- **Secure HTTPS Redirections:** Sensitive requests are enforced to use HTTPS to guarantee encrypted and secure data transfer.
 - **Atomic Transactions:** Changes to the database and media files are handled atomically where appropriate, preventing partial updates and ensuring data integrity.  
 - **Validation & Error Handling:** All user input is validated server-side, and errors are handled gracefully without breaking the application with `404 Not Found` and `5xx Server Errors`, ensuring the page does not crash or break.
 
