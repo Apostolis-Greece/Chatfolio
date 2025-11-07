@@ -52,5 +52,41 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 - Additional tools for minification, spritesheet generation, and async handling
 
 
-## Installation
-bulk_load command
+## ⚙️ Installation & Setup
+Follow the steps below to set up and deploy the **Chatfolio Project** on your machine.
+
+### 1️⃣ Create and Activate a Virtual Environment
+```bash
+sudo python -m venv Chatfolio-Environment
+source Chatfolio-Environment/bin/activate
+```
+
+### 2️⃣ Navigate to the Project Directory
+```bash
+mkdir Chatfolio-Environment/Chatfolio-Project
+cd Chatfolio-Environment/Chatfolio-Project
+```
+
+### 3️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ Apply Database Migrations
+```bash
+python manage.py makemigrations accounts_app; python manage.py migrate accounts_app; python manage.py makemigrations chat_app; python manage.py migrate chat_app; python manage.py makemigrations; python manage.py migrate;
+```
+
+### 5️⃣ Database Bulk Load with Fake User Accounts (Optional)
+```bash
+python manage.py bulk_load_fake_users --number 1000;
+```
+
+### 6️⃣ Run the Development Server
+```bash
+python3 manage.py compress; python3 manage.py collectstatic --noinput; python3 manage.py runserver 0.0.0.0:8000;
+```
+
+✅ Once the server is running, you can access the project at:
+👉 http://localhost:8000
+
