@@ -17,8 +17,7 @@ Chatfolio is a full-stack web development portfolio project that is built with s
   - Passwords are salted and hashed iteratively to protect against `Rainbow Table attacks`.  
   - Users with identical passwords will have distinct hashes stored in the database.  
 - **Database & Filesystem Sync:** Media files are consistently synchronized with the database to ensure integrity.
-
-- **HTTP POST Requests:** All critical operations are performed via POST requests to ensure safe data transportation.  
+-**Secure HTTPS Redirections:** Sensitive requests are enforced to use HTTPS to guarantee encrypted and secure data transfer.
 - **Atomic Transactions:** Changes to the database and media files are handled atomically where appropriate, preventing partial updates and ensuring data integrity.  
 - **Validation & Error Handling:** All user input is validated server-side, and errors are handled gracefully without breaking the application with `404 Not Found` and `5xx Server Errors`, ensuring the page does not crash or break.
 
@@ -27,10 +26,9 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 - **Smooth, controlled page loading:** using JavaScript and Event Listeners to prevent abrupt visual changes.
 - **Responsive Layout:** Compatibility with different screen sizes (i.e. mobiles, tablets, laptops).
 - **Lazy Loading:** while waiting for time-consuming requests to make clients not bored.  
-- Multiple interactive event listeners enhance user engagement.  
-- Beautiful design with CSS animations.  
-- Graceful degradation in case JavaScript is disabled in the browser.  
+- Beautiful CSS styles accombanied with amazing animations
 - Popup elements for enhancing interactivity.
+- Graceful degradation in case JavaScript is disabled in the browser.  
 
 
 ### Performance
