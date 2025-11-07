@@ -18,12 +18,12 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 - **🔄 Database & Filesystem Sync:** Media files are consistently synchronized with the database to ensure integrity.
 - **🛡️ Secure HTTPS Redirections:** Sensitive requests are enforced to use HTTPS to guarantee encrypted and secure data transfer.
 - **⚛️ Atomic Transactions:** Changes to the database and media files are handled atomically where appropriate, preventing partial updates and ensuring data integrity.  
-- **✅ Validation & Error Handling:** All user input is validated server-side, and errors are handled gracefully without breaking the application with `404 Not Found` and `5xx Server Errors`, ensuring the page does not crash or break.
+- **✅ ⚠️ Validation & Error Handling:** All user input is validated server-side, and errors are handled gracefully without breaking the application with `404 Not Found` and `5xx Server Errors`, ensuring the page does not crash or break.
 
   
 ### 🎯 User Experience
 - **🏁 Smooth, controlled page loading:** using JavaScript and Event Listeners to prevent abrupt visual changes.
-- **📱💻 Responsive Layout:** Compatibility with different screen sizes (i.e. mobiles, tablets, laptops).
+- **📱 💻 Responsive Layout:** Compatibility with different screen sizes (i.e. mobiles, tablets, laptops).
 - **⏳ Lazy Loading:** while waiting for time-consuming requests to make clients not bored.  
 - 🎨 Beautiful CSS styles and amazing animations
 - 💬 Popup elements for enhancing interactivity.
@@ -31,17 +31,17 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
 
 ### 🚀 Performance
-- **Static File Optimization:**  
-  1. **Spritesheets:** Multiple images combined into a single spritesheet with JSON coordinates with efficient extraction on the client-side via JavaScript, reducing HTTP requests.  
-  2. **ZIP Archives:** Many static files are bundled into a single ZIP file with real-time extraction on the client-side via JavaScript, reducing HTTP requests.  
-  3. **HTML/CSS/JS Minification:**  
+- **🗂️ Static File Optimization:**  
+  1. **🖼️ Spritesheets:** Multiple images combined into a single spritesheet with JSON coordinates with efficient extraction on the client-side via JavaScript, reducing HTTP requests.  
+  2. **🗜️ ZIP Archives:** Many static files are bundled into a single ZIP file with real-time extraction on the client-side via JavaScript, reducing HTTP requests.  
+  3. **✂️ HTML/CSS/JS Minification:**  
      - All files with the same file type are automatically concatenated to minimize HTTP requests.  
      - Whitespaces and comments are removed to reduce file size and bandwidth.
-- **Event Delegation:** Widely used for efficient DOM manipulation, reducing memory leaks, improving performance, and coding flexibility.  
-- **Asynchronous Requests:** Dynamic content updates without full page reloads.  
-- **Validation & Error Handling:** Efficient handling of HTTP errors to prevent page crashes.
-- **Cookies & localStorage:** Session management, preferences, and user interactions.  
-- **No Memory Leakage:** No Global Variables, Single-use Event Listeners are effectively deleted, etc, ensuring the browser does not slow down or crash.
+- **🥷 Event Delegation:** Widely used for efficient DOM manipulation, reducing memory leaks, improving performance, and coding flexibility.  
+- **⚡ Asynchronous Requests:** Dynamic content updates without full page reloads.  
+- **✅ ⚠️ Validation & Error Handling:** Efficient handling of HTTP errors to prevent page crashes.
+- **🍪 💾 Cookies & localStorage:** Session management, preferences, and user interactions.  
+- **🧹 No Memory Leakage:** No Global Variables, Single-use Event Listeners are effectively deleted, etc, ensuring the browser does not slow down or crash.
 
 
 ## 🔧 Technologies
