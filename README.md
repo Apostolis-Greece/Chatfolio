@@ -22,7 +22,7 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
   
 ### 🎯 User Experience
-- **🏁 Smooth, controlled page loading:** using JavaScript and Event Listeners to prevent abrupt visual changes.
+- **🏁 Smooth & Controlled Page Loading:** using JavaScript and Event Listeners to prevent abrupt visual changes.
 - **📱 💻 Responsive Layout:** Compatibility with different screen sizes (i.e. mobiles, tablets, laptops).
 - **⏳ Lazy Loading:** while waiting for time-consuming requests to make clients not bored.  
 - 🎨 Beautiful CSS styles and amazing animations
@@ -31,12 +31,12 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
 
 ### 🚀 Performance
-- **🗂️ Static File Optimization:**  
+- **🗂️ Static Files Optimization:**  
   1. **🖼️ Spritesheets:** Multiple images combined into a single spritesheet with JSON coordinates with efficient extraction on the client-side via JavaScript, reducing HTTP requests.  
   2. **🗜️ ZIP Archives:** Many static files are bundled into a single ZIP file with real-time extraction on the client-side via JavaScript, reducing HTTP requests.  
   3. **✂️ HTML/CSS/JS Minification:**  
      - All files with the same file type are automatically concatenated to minimize HTTP requests.  
-     - Whitespaces and comments are removed to reduce file size and bandwidth.
+     - Whitespaces and Comments are removed to reduce File Size and Bandwidth.
 - **🥷 Event Delegation:** Widely used for efficient DOM manipulation, reducing memory leaks, improving performance, and coding flexibility.  
 - **⚡ Asynchronous Requests:** Dynamic content updates without full page reloads.  
 - **✅ ⚠️ Validation & Error Handling:** Efficient handling of HTTP errors to prevent page crashes.
