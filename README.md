@@ -42,6 +42,7 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 - **✅ ⚠️ Validation & Error Handling:** Efficient handling of HTTP errors to prevent page crashes.
 - **🍪 💾 Cookies & localStorage:** Session management, preferences, and user interactions.  
 - **🧹 No Memory Leakage:** No Global Variables, Single-use Event Listeners are effectively deleted, etc, ensuring the browser does not slow down or crash.
+- **🧹 Maintainance & Scalability:** Clean, easily readable and maintainable code, well-organised in many files/folders.
 
 
 ## 🔧 Technologies
