@@ -65,7 +65,7 @@ source Chatfolio-Environment/bin/activate
 ### 2️⃣ Clone the Repository
 ```bash
 git clone git@github.com:Apostolis-Greece/Chatfolio.git
-cd Chatfolio/Chatfolio-Project
+cd Chatfolio
 ```
 
 ### 3️⃣ Install Dependencies
