@@ -75,19 +75,19 @@ pip install -r requirements.txt
 
 ### 4️⃣ Apply Database Migrations
 ```bash
-python manage.py makemigrations accounts_app; python manage.py migrate accounts_app; python manage.py makemigrations chat_app; python manage.py migrate chat_app; python manage.py makemigrations; python manage.py migrate;
+python3 manage.py makemigrations accounts_app; python3 manage.py migrate accounts_app; python3 manage.py makemigrations chat_app; python3 manage.py migrate chat_app; python3 manage.py makemigrations; python3 manage.py migrate;
 ```
 
 ### 5️⃣ Database Bulk Load with Fake User Accounts (Optional)
 ```bash
-python manage.py collectstatic --noinput
-python manage.py bulk_load_fake_users --number 100
+python3 manage.py collectstatic --noinput
+python3 manage.py bulk_load_fake_users --number 100
 ```
 
 ### 6️⃣ Run the Development Server
 💡 Tip: 0.0.0.0:8000 makes the server accessible to other devices on the same LAN.
 ```bash
-python manage.py compress; python manage.py collectstatic --noinput; python manage.py runserver 0.0.0.0:8000;
+python3 manage.py compress; python3 manage.py collectstatic --noinput; python3 manage.py runserver 0.0.0.0:8000;
 ```
 ### 6️⃣ Connect as a Client
 #### 🇦 Same Machine (Client & Server)
