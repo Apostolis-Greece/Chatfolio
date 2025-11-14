@@ -1,0 +1,48 @@
+
+
+######################################################################################################################
+######################################################################################################################
+Απλό Restart runserver (για development):
+  1) collect static files
+  3) ο runserver θα ακούει αιτήματα από όλες τις συσκευές του δικτύου και όχι μόνο από το localhost
+
+python3 manage.py collectstatic --noinput; python3 manage.py runserver 0.0.0.0:8000;
+
+----------------------------------------------------------------------------------------------------------------------
+
+Βέλτιστο Restart runserver (για production):
+  1) css/js minification πριν το deployment
+  2) collect static files
+  3) ο runserver θα ακούει αιτήματα από όλες τις συσκευές του δικτύου και όχι μόνο από το localhost
+
+python3 manage.py compress; python3 manage.py collectstatic --noinput; python3 manage.py runserver 0.0.0.0:8000;
+
+
+######################################################################################################################
+######################################################################################################################
+Η δημιουργία του flags-spritesheet.png και του sprites.json εγίνε από τη σελίδα: https://www.leshylabs.com/apps/sstool/
+
+
+######################################################################################################################
+######################################################################################################################
+Απλή εκκίνηση Django Runserver, το οποίο ακούει σε HTTP Requests μόνο από το localhost machine:
+	runserver:  python manage.py runserver
+	client:  HTTP Requests 127.0.0.1:8000
+
+
+Βέλτιστη εκκίνηση Dango Runserver, το οποίο ακούει σε HTTP Requests από όλο το LAN στο οποίο ανήκει το localhost machine:
+	server:  ifconfig:  local_IP (πχ 192.168.1.6)
+	server:  python manage.py runserver 0.0.0.0:8000
+
+	Συνδέω στο ίδιο δίκτυο (wifi, ethernet κλπ) τον runserver και όλους τους clients (pc, tablets, κινητά κλπ)
+	client:  HTTP Requests 192.168.1.6:8000
+
+
+######################################################################################################################
+######################################################################################################################
+Γεμίζω τη βάση δεδομένων με ψεύτικους χρήστες:
+	1) Διαγραφω το sqlite file
+	2) Διαγράφω τα παλιά migration files
+	3) python3 manage.py makemigrations accounts_app; python3 manage.py migrate accounts_app; python3 manage.py makemigrations chat_app; python3 manage.py migrate chat_app; python3 manage.py makemigrations; python3 manage.py migrate;
+	4) python manage.py bulk_load_fake_users --number 100
+

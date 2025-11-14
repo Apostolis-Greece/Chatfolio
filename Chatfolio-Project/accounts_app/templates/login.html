@@ -1,0 +1,92 @@
+
+{% extends "accounts_app-master.html" %}
+{% load static %}
+{% load compress %}
+
+{% block title %}Chatfolio - Login{% endblock %}
+{% block load-static-files %}
+  <!--
+    Λύση 1
+      Αυτό το js file το φορτώνω εκτός του -{-%-compress-js-%-}-
+      Επειδή είναι URL ο django-compressor δεν μπορεί να το κάνει compress και βγάζει σφάλμα.
+    
+    Λύση 2
+      Κατεβάζω το https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js και το αποθηκεύω στο φάκελο static/js
+      Τώρα ο django-compressor μπορεί να το κάνει κανονικά compress.
+  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  {% compress js %}
+    <script src="{% static 'js/accounts_app.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+    <script src="{% static 'js/socials-unzip.js' %}"></script>
+  {% endcompress %}
+{% endblock %}
+
+<!-- Δεν καλεί τα popup-credentials, popup-errors, lazy-load blocks για να κληρονομήσει το default περιεχόμενο του master.html -->
+
+{% block container-column-1 %}{% endblock %}
+
+{% block container-column-2 %}
+  <!-- Προσοχή
+          1)  Το html element input.name να είναι ίδιο με το πεδίο του models.py
+          2)  Το html element label.for να είναι ίδιο με το html element input.id
+          3)  Το html element datalist.id να είναι ίδιο με το html element input.id
+  -->
+  <form id="login-form" autocomplete="on" novalidate>
+    <!-- Το csrf token μπαίνει μόνο σε HTTP POST Requests προς δικά μου Servers/URLs-->
+    {% csrf_token %}
+
+    <div id="email-container">
+      <label class="labels" for="email-textfield">Email</label>
+      <input id="email-textfield" name="email" type="email" placeholder="Enter your email"/>
+      <div id="email-error-area"></div>
+    </div>
+
+    <div>
+      <div id="password-container">
+        <label class="labels" for="password-textfield">Password</label>
+        <div id="password-textfield-container">
+          <input id="password-textfield" name="password" type="password" placeholder="Enter your password"/>
+          <button id="lamb" type="button" onclick=hideShowPasswordLogin()>&#128161;</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="show-password-container">
+        <input id="show-password-login" type="checkbox" onclick="hideShowPasswordRegister()"/>
+        <label for="show-password-login">Show Password</label>
+    </div>
+
+    <div id="login-container">
+      <button id="login-submit" type="submit">Login</button>
+      <div id="login-error-area"></div>
+
+      <div id="socials-container" data-zip-url="{% static 'photos/socials/socials.zip' %}">
+        <button id="google-login-button" type="button" class="social-element">
+          <img class="social-image" alt="Google Logo" title="google.com">
+        </button>
+
+        <button id="linkedin-login-button" type="button" class="social-element">
+          <img class="social-image" alt="Linkedin Logo" title="linkedin.com">
+        </button>
+
+        <button id="twitter-login-button" type="button" class="social-element">
+          <img class="social-image" alt="Twitter Logo" title="twitter.com">
+        </button>
+
+        <button id="printerest-login-button" type="button" class="social-element">
+          <img class="social-image" alt="Printerest Logo" title="printerest.com">
+        </button>
+      </div>
+    </div>
+
+    <div id="links-container">
+      <a class="link" href="{% url 'forgotPassword_view' %}">Forgot Password</a>
+      <a class="link" href="{% url 'register_view' %}">Register</a>
+    </div>
+  </form>
+{% endblock %}
+
+{% block container-column-3 %}{% endblock %}

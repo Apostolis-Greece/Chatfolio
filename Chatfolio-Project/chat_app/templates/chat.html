@@ -1,0 +1,64 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en-GR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="{% static 'js/responsive.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <title>Chatfolio - Chat</title>
+  <link rel="stylesheet" href="{% static 'css/chat_app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/noscript.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'photos/favicon.ico' %}">
+</head>
+<body>
+  <noscript id="popup-no-js">
+    JavaScript is disabled on your browser.<br>
+    This website may not working properly.<br>
+    Please enable JavaScript from browser settings.
+  </noscript>
+  
+  <header>
+    <h1><a href="/"></a></h1>
+  </header>
+
+  <div id="container-auth">
+    <div id="container-auth-column-1"></div>
+
+    <div id="container-auth-column-2">
+
+
+
+
+      <div id="profile-container">
+        <img id="profile-photo" src="{{ profile_image }}" alt="Profile Photo">
+        <div id="profile-email" class="email">{{ email }}</div>
+        <div id="profile-country" class="country">{{ country }}</div>
+
+        <form action="{% url 'logout_view' %}" method="POST">
+          {% csrf_token %}
+          <button id="logout-button" type="submit">Logout</button>
+        </form>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div id="container-auth-column-3"></div>
+  </div>
+
+  
+
+  <script src="{% static 'js/chat_app-common.js' %}"></script>
+  <script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>

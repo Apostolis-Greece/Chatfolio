@@ -1,0 +1,112 @@
+
+{% load static %}
+{% load compress %}
+
+<!doctype html>
+<html lang="en-GR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+ 
+  <!-- Φορτώνω τα βασικά στοιχεία για να χωράει όλο το περιεχόμενο στην οθόνη χωρίς να γίνεται scroll -->
+  {% compress js %}
+    <script src="{% static 'js/responsive.js' %}"></script>
+  {% endcompress %}
+  {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  {% endcompress %}
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- Φορτώνω τα βασικά στοιχεία που χρησιμοποιούν όλα τα html pages του accounts_app -->
+  {% compress css %}
+    <link rel="stylesheet" href="{% static 'css/accounts_app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/noscript.css' %}">
+  {% endcompress %}
+    <link rel="icon" type="image/x-icon" href="{% static 'photos/favicon.ico' %}">
+
+  <!-- Δημιουργώ ένα κενό block για να φορτώσει η κάθε σελίδα τα δικά της static files -->
+  {% block load-static-files %}{% endblock %}
+</head>
+<body>
+  <!-- Κληρονομείται από όλα τα html pages -->
+  {% block noscript %}
+    <noscript id="popup-no-js" translate="yes">
+      JavaScript is disabled on your browser.<br>
+      This website may not working properly.<br>
+      Please enable JavaScript from browser settings.
+    </noscript>
+  {% endblock %}
+  
+  <!-- Κληρονομείται μόνο από τα: login.html, register.html, forgot.html -->
+  {% block popup-credentials %}
+    <div id="popup-credentials-container">
+      <div>Do you want to store your credentials on the browser?</div>
+      <div id="popup-buttons-container">
+          <button id="yes-button" class="popup-buttons">Yes</button>
+          <button id="no-button" class="popup-buttons">No</button>
+      </div>
+    </div>
+  {% endblock %}
+
+  <!-- Κληρονομείται μόνο από τα: login.html, register.html, forgot.html -->
+  {% block popup-errors %}
+    <div id="popup-errors-container">
+      <div id="popup-errors-content">
+        <p id="errors-text"></p>
+        <button id="error-close-button" onclick="closePopupErrors()">Close</button>
+      </div>
+    </div>
+  {% endblock %}
+
+  <!-- Κληρονομείται μόνο από τα: login.html, register.html, forgot.html -->
+  {% block lazy-load %}
+    <div id="lazy-load">
+      <div id="lazy-load-container">
+        <div class="lazy-load-element"></div>
+      </div>
+    </div>
+  {% endblock %}
+
+  <!-- Κληρονομείται από όλα τα html pages -->
+  {% block header %}
+    <header>
+      <h1><a href="{% url 'homepage_view' %}" translate="yes">Chatfolio</a></h1>
+    </header>
+  {% endblock %}
+
+  <div id="container">
+    <div id="container-column-1">
+      {% block container-column-1 %}{% endblock %}
+    </div>
+
+    <div id="container-column-2">
+      {% block container-column-2 %}{% endblock %}
+    </div>
+
+    <div id="container-column-3">
+      {% block container-column-3 %}{% endblock %}
+    </div>
+  </div>
+
+  <!-- Κληρονομείται από όλα τα html pages εκτός του homepage.html -->
+  {% block footer %}
+    <footer class="footer">
+      <div class="footer-copyright">
+          &copy; 2025 Chatfolio. All rights reserved.
+      </div>
+      <div class="footer-links">
+          <a href="#" translate="yes">About</a>
+          <a href="#" translate="yes">Contact</a>
+          <a href="{% url 'termsAndConditions_view' %}" translate="yes">Terms and Conditions</a>
+      </div>    
+      <div class="footer-links" translate="yes">
+        Find us on:
+        <a href="https://youtube.com/" target="_blank">YouTube</a>
+        <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      </div>
+    </footer>
+  {% endblock %}
+
+</body>
+</html>

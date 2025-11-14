@@ -1,0 +1,94 @@
+
+{% extends "accounts_app-master.html" %}
+{% load static %}
+{% load compress %}
+
+{% block title %}Chatfolio - Register{% endblock %}
+
+{% block load-static-files %}
+  <!--
+    Αυτά τα 3 js files τα έβαλα στο ίδιο compress-block.
+    Συνεπώς, ο django-compressor θα τα ενώσει σε 1 μόνο js file.
+    Ως αποτέλεσμα, θα γίνει μόνο 1 HTTP GET Request/Response και όχι 3
+    επιταχύνοντας τη φόρτωση της σελίδας register.html και το user experience 
+  -->
+  {% compress js %}
+    <script src="{% static 'js/accounts_app.js' %}"></script>
+    <!--
+        Προσοχή
+          Αν στα σχόλια γράφω -{-%-compress-js-%-}- , -{-%endcompres-%-}- , -{-%-block-%-}- , -{-%-endblock-%-}-
+          και αφαιρέσω όλες τις παύλες, τότε η Django μπερδεύεται και όταν κάποιος κάνει HTTP GET register/
+          η απάντηση είναι HTTP 500 με το εξής σφάλμα: 
+            Compressing... Invalid template register.html: Invalid block tag on line 123: 'endblock', expected 'endcompress'. Did you forget to register or load this tag?
+    -->
+    <script src="{% static 'js/countries.js' %}"></script>
+    <script src="{% static 'js/register.js' %}"></script>
+  {% endcompress %}
+{% endblock %}
+
+<!-- Δεν καλεί τα popup-credentials, popup-errors, lazy-load blocks για να κληρονομήσει το default περιεχόμενο του master.html -->
+
+{% block container-column-1 %}{% endblock %}
+
+{% block container-column-2 %}
+  <!-- Προσοχή
+          1)  Το html element input.name να είναι ίδιο με το πεδίο του models.py
+          2)  Το html element label.for να είναι ίδιο με το html element input.id
+          3)  Το html element datalist.id να είναι ίδιο με το html element input.id
+  -->
+  <form id="register-form" autocomplete="on" novalidate>
+    <!-- Το csrf token μπαίνει μόνο σε HTTP POST Requests προς δικά μου Servers/URLs-->
+    {% csrf_token %}
+
+    <div id="email-container">
+      <label class="labels" for="email-textfield">Email</label>
+      <input id="email-textfield" name="email" type="email" placeholder="Enter your email"/>
+      <div id="email-error-area"></div>
+    </div>
+
+    <div>
+      <div id="password-container">
+        <label class="labels" for="password-textfield">Password</label>
+        <div id="password-textfield-container">
+          <input id="password-textfield" name="password" type="password" placeholder="Enter your password"/>
+          <button id="lamb" type="button" onclick=hideShowPasswordRegister()>&#128161;</button>
+        </div>
+        <div id="passwordStrongBar"></div>
+        <div id="password-error-area"></div>
+      </div>
+
+      <div id="confirm-container">
+        <label class="labels" for="confirm-textfield">Confirm Password</label>
+        <div id="confirm-textfield-container">
+          <input id="confirm-textfield" name="confirm" type="password" placeholder="Confirm your password"/>
+        </div>
+        <div id="confirm-error-area"></div>
+      </div>
+
+      <div id="show-password-container">
+        <input id="show-password-register" type="checkbox" onclick="hideShowPasswordRegister()"/>
+        <label for="show-password-register">Show Password</label>
+      </div>
+    </div>
+
+    <div id="country-container"
+        data-flags-url="{% static 'photos/flags/flags-spritesheet.png' %}"
+        data-sprites-json-url="{% static 'json/flags-spritesheet.json' %}">      
+      <div id="country-select">Country</div>
+      <div class="country-options-container">
+        <!-- Εδώ θα φορτωθούν όλες οι χώρες μέσω της JavaScript -->
+      </div>
+    </div>
+
+    <div id="register-container">
+        <button id="register-submit" type="submit">Register</button>
+    </div>
+
+    <div id="links-container">
+      <a class="link" href="{% url 'forgotPassword_view' %}">Forgot Password</a>
+      <a class="link" href="{% url 'login_view' %}";>Login</a>
+    </div>
+  </form>
+{% endblock %}
+
+{% block container-column-3 %}{% endblock %}

@@ -1,0 +1,42 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-GR">
+<head>
+    <meta charset="UTF-8">
+    <title>myInstantChat</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/404.css' %}">
+    <link rel="stylesheet" href="{% static 'css/noscript.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'photos/favicon.ico' %}">
+
+</head>
+<body>
+  <noscript id="popup-no-js">
+    JavaScript is disabled on your browser.<br>
+    This website may not working properly.<br>
+    Please enable JavaScript from browser settings.
+  </noscript>
+  
+  <script src="{% static 'js/lottie-player.js' %}"></script>
+    <!--<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>-->
+    <lottie-player
+        id="lottie-animation"
+        src="{% static 'json/lf20_HpFqiS.json' %}"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        title="Animation with a student">
+    </lottie-player>
+
+    <div id="hidden-404-text">
+        <p><div id="text">404 - Δεν βρέθηκε η σελίδα</div></p>
+        <p><div>Η σελίδα δεν υπάρχει ή έχει μετακινηθεί.</div></p>
+        <div>Βεβαιωθείται ότι έχει γράψει σωστά τη διεύθυνση της σελίδας.</div>
+        <p><a id="link-homepage" href="/">Επιστροφή στην αρχική σελίδα</a></p>
+    </div>
+
+    <script src="{% static 'js/404.js' %}"></script> 
+</body>
+</html>

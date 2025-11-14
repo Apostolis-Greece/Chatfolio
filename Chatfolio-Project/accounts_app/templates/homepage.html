@@ -1,0 +1,77 @@
+
+{% extends "accounts_app-master.html" %}
+{% load static %}
+{% load compress %}
+
+{% block title %}Chatfolio{% endblock %}
+{% block load-static-files %}
+  {% compress js %}
+    <!-- Φορτώνω το <lottie-player> δηλ. το html tag -->
+    <script src="{% static 'js/lottie-player.js' %}"></script>
+    
+    <script src="{% static 'js/lottie-astronaut-animation.js' %}"></script>
+    <script src="{% static 'js/homepage.js' %}"></script>
+  {% endcompress %}
+{% endblock %}
+
+<!-- Καλεί αυτά τα blocks για να μην κληρονομήσει το default περιεχόμενο του master.html -->
+{% block popup-credentials %}{% endblock %}
+{% block popup-errors %}{% endblock %}
+{% block lazy-load %}{% endblock %}
+
+{% block container-column-1 %}{% endblock %}
+
+{% block container-column-2 %}
+  <div class="greet-text-container hidden-tags">
+    <div class="greet-text-top">Chat with your favourite friends</div>
+    <div class="greet-text-top">Perform proffesional meetings</div>
+    <div class="greet-text-top">Enjoy pleasant video calls</div>
+  </div>
+
+  <div>
+    <!-- Το lottie animation είναι στο json file -->
+    <div id="astronaut-container">
+      <lottie-player
+          id="lottie-astronaut"
+          src="{% static 'json/lf20_ydo1amjm.json' %}"
+          speed="1"
+          loop
+          autoplay
+          title="Animation with an astronaut">
+      </lottie-player>
+    </div>
+  </div>
+
+  <div class="greet-text-container hidden-tags">
+    <div class="greet-text-bottom">Protect yourself from censorship</div>
+    <div class="greet-text-bottom">Safe and encrypted messages</div>
+    <div class="greet-text-bottom">Keep your privacy</div>
+  </div>
+
+  <div id="buttons-container" class="hidden-tags">
+    <!-- Με το data-* μπορώ να περάσω τιμές από ένα html element σε έναν κώδικα JavaScript -->
+    <button id="go-login" class="go" type="button" data-url="{% url 'login_view' %}">Login</button>
+    <button id="go-register" class="go" type="button" data-url="{% url 'register_view' %}">Register</button>
+  </div>
+{% endblock %}
+
+{% block container-column-3 %}{% endblock %}
+
+<!-- Καλεί αυτό το block για να μην κληρονομήσει το default περιεχόμενο του master.html -->
+{% block footer %}
+  <footer class="footer hidden-tags">
+    <div class="footer-copyright">
+        &copy; 2025 Chatfolio. All rights reserved.
+    </div>
+    <div class="footer-links">
+        <a href="#" translate="yes">About</a>
+        <a href="#" translate="yes">Contact</a>
+        <a href="{% url 'termsAndConditions_view' %}" translate="yes">Terms and Conditions</a>
+    </div>    
+    <div class="footer-links" translate="yes">
+      Find us on:
+      <a href="https://youtube.com/" target="_blank">YouTube</a>
+      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+{% endblock %}

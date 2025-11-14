@@ -1,0 +1,29 @@
+
+body {
+    background-color:#f4f6f8;
+    color:black;
+    font-family:Arial;
+    text-align:center;
+    font-size:18px;
+}
+
+#lottie-animation {
+    max-width:30%; height:auto; /* Responsive Image */
+    display:block; margin: 0 auto;
+}
+
+#hidden-404-text {
+    opacity: 0;
+}
+
+#link-homepage{
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#text {
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+}
