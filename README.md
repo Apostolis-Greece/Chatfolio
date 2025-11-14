@@ -58,18 +58,19 @@ Follow the steps below to set up and deploy the **Chatfolio Project** on your ma
 
 ### 1️⃣ Create and Activate a Virtual Environment
 ```bash
-sudo python -m venv Chatfolio-Environment
+python3 -m venv Chatfolio-Environment
 source Chatfolio-Environment/bin/activate
 ```
 
-### 2️⃣ Navigate to the Project Directory
+### 2️⃣ Clone the Repository
 ```bash
-mkdir Chatfolio-Environment/Chatfolio-Project
-cd Chatfolio-Environment/Chatfolio-Project
+git clone git@github.com:Apostolis-Greece/Chatfolio.git
+cd Chatfolio
 ```
 
 ### 3️⃣ Install Dependencies
 ```bash
+cd Chatfolio-Project
 pip install -r requirements.txt
 ```
 
@@ -80,13 +81,14 @@ python manage.py makemigrations accounts_app; python manage.py migrate accounts_
 
 ### 5️⃣ Database Bulk Load with Fake User Accounts (Optional)
 ```bash
-python manage.py bulk_load_fake_users --number 1000;
+python manage.py collectstatic --noinput
+python manage.py bulk_load_fake_users --number 100
 ```
 
 ### 6️⃣ Run the Development Server
 💡 Tip: 0.0.0.0:8000 makes the server accessible to other devices on the same LAN.
 ```bash
-python3 manage.py compress; python3 manage.py collectstatic --noinput; python3 manage.py runserver 0.0.0.0:8000;
+python manage.py compress; python manage.py collectstatic --noinput; python manage.py runserver 0.0.0.0:8000;
 ```
 ### 6️⃣ Connect as a Client
 #### 🇦 Same Machine (Client & Server)
