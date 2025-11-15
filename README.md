@@ -5,15 +5,17 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
 
 ### 🎬 Demo
-<img src="./assets/login-logout.gif" width="900" height="545" />
+<img src="./assets/login.gif" width="792" height="562" />
 <div style="
   display:flex;
-  gap:20px;
+  justify-content: space-between; /* πρώτο αριστερά, δεύτερο δεξιά */
+  align-items:flex-start;
   border:2px solid red;
-  padding:5px;  /* αυτό θα δείξει το border γύρω από τις εικόνες */
+  padding:10px;
+  width:100%; /* γεμίζει όλο το πλάτος του container */
 ">
-  <img src="./assets/homepage.gif" width="300" height="521" />
-  <img src="./assets/register.gif" width="300" height="521" />
+  <img src="./assets/homepage.gif" width="322" height="562" />
+  <img src="./assets/register.gif" width="434" height="558" />
 </div>
 
 
