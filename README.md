@@ -3,6 +3,14 @@
 ## 🌍 Overview
 Chatfolio is a full-stack web development portfolio project that is built with several web technologies. It consists of two main Django Apps: a) `accounts_app` and b) `chat_app` (under development). The project emphasizes **security**, **performance**, and **user experience**, showcasing best practices in web development.
 
+
+### 🎬 Demo
+<video autoplay loop muted playsinline width="400">
+  <source src="./assets/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 ## 📌 Features
 
 ### 🔒 Security
@@ -61,29 +69,24 @@ Follow the steps below to set up and deploy the **Chatfolio Project** on your ma
 python3 -m venv Chatfolio-Environment
 source Chatfolio-Environment/bin/activate
 ```
-
 ### 2️⃣ Clone the Repository
 ```bash
 git clone git@github.com:Apostolis-Greece/Chatfolio.git
 cd Chatfolio
 ```
-
 ### 3️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-
 ### 4️⃣ Apply Database Migrations
 ```bash
 python3 manage.py makemigrations accounts_app; python3 manage.py migrate accounts_app; python3 manage.py makemigrations chat_app; python3 manage.py migrate chat_app; python3 manage.py makemigrations; python3 manage.py migrate;
 ```
-
 ### 5️⃣ Database Bulk Load with Fake User Accounts (Optional)
 ```bash
 python3 manage.py collectstatic --noinput
 python3 manage.py bulk_load_fake_users --number 100
 ```
-
 ### 6️⃣ Run the Development Server
 💡 Tip: 0.0.0.0:8000 makes the server accessible to other devices on the same LAN.
 ```bash
@@ -94,7 +97,6 @@ python3 manage.py compress; python3 manage.py collectstatic --noinput; python3 m
 ```bash
 http://localhost:8000
 ```
-
 #### 🇧 Different Machine (e.g., Clients are Smartphones, Tablets, PCs etc., Server is a PC)
 ⚠️ **Attention:** Both client and server must be on the **same LAN network** (e.g. same Wifi network)
 - **Find Server IP:**
