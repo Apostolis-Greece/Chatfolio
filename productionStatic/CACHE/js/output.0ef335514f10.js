@@ -1,0 +1,1 @@
+"use strict";document.addEventListener('DOMContentLoaded',(event)=>{console.log(`${event.type} Event Fired`);document.documentElement.style.setProperty('--vh',`${window.innerHeight * 0.01}px`);},{once:true});;
