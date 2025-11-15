@@ -6,6 +6,8 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
 ### 🎬 Demo
 ![Demo](./assets/homepage.gif)
+![Demo](./assets/homepage2.gif)
+
 
 
 ## 📌 Features
