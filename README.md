@@ -5,10 +5,7 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 
 
 ### 🎬 Demo
-<video autoplay loop muted playsinline width="400">
-  <source src="./assets/homepage.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo](./assets/homepage.gif)
 
 
 ## 📌 Features
