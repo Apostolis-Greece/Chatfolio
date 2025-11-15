@@ -1,29 +1,26 @@
 
 body {
-    background-color:#f4f6f8;
-    color:black;
-    font-family:Arial;
-    text-align:center;
-    font-size:18px;
+    background-color: var(--black);
+    color: var(--orange);
+    font-family: Arial;
+    text-align: center;
+    font-size: var(--large-text);
 }
 
 #lottie-animation {
-    max-width:30%; height:auto; /* Responsive Image */
+    max-width:45%; height:auto; /* Responsive Image */
     display:block; margin: 0 auto;
 }
 
 #hidden-404-text {
-    opacity: 0;
+    margin-top: 2%;
+    opacity: 0; visibility: hidden;
 }
 
 #link-homepage{
-    color: #3498db;
-    font-weight: bold;
-    text-decoration: none;
+    color: var(--orange);
 }
 
-#text {
-    color: black;
-    font-weight: bold;
-    font-size: 25px;
+.text {
+    margin-top: 0.5%;
 }

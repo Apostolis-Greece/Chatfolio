@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bz)x+l9qqx4*mioew!xy9l%@tf+ucij_eo5fw#!o#s^w9#m8v5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Development:True , Production:False
+DEBUG = False # Development:True , Production:False
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 else:
-    #ALLOWED_HOSTS = ["example.com", "www.example.com"] # συμπληρώνω το δικό μου domain
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1"] # συμπληρώνω το δικό μου domain
     pass
 
 # Application definition
@@ -177,6 +177,7 @@ else:
     SECURE_HSTS_SECONDS = 31536000  # 1 χρόνος
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
 
 # Τα Cookies δε θα είναι προσβάσιμα από κώδικα JavaScript
 SESSION_COOKIE_HTTPONLY = True
