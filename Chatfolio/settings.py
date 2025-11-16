@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bz)x+l9qqx4*mioew!xy9l%@tf+ucij_eo5fw#!o#s^w9#m8v5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # Development:True , Production:False
+DEBUG = True # Development:True , Production:False
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 else:
@@ -171,12 +171,12 @@ else:
     CSRF_COOKIE_SECURE = True
     
     # Force Redirect HTTP Requests σε HTTPS Requests
-    SECURE_SSL_REDIRECT = True
+    #SECURE_SSL_REDIRECT = True
 
     # HSTS: Υποχρεωτική χρήση HTTPS (προαιρετικά)
-    SECURE_HSTS_SECONDS = 31536000  # 1 χρόνος
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+    #SECURE_HSTS_SECONDS = 31536000  # 1 χρόνος
+    #SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    #SECURE_HSTS_PRELOAD = True
 
 
 # Τα Cookies δε θα είναι προσβάσιμα από κώδικα JavaScript
