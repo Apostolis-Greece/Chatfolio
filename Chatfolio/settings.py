@@ -20,11 +20,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bz)x+l9qqx4*mioew!xy9l%@tf+ucij_eo5fw#!o#s^w9#m8v5'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Development:True , Production:False
+'''
+    Προσοχή: Αφαιρώ τους κωδικούς από το plain text settings.py και να εισάγω στο ασφαλέστερο .env
+    Το .env είναι και αυτό plain text αλλά με τη ρύθμιση .gitignore δεν ανεβαίνει στο github
+    SECURITY WARNING: keep the SECRET_KEY and the DEBUG used in production secret!
+'''
+from decouple import config
+SECRET_KEY = config('MY_SECRET_KEY')
+DEBUG = config('MY_DEBUG', default=False, cast=bool)
+#SECRET_KEY = '.....'
+#DEBUG = .....
+
+
 if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 else:
@@ -44,7 +52,18 @@ INSTALLED_APPS = [
     'chat_app',
     'compressor',
     'htmlmin',
+    'rest_framework',
+    'corsheaders',
+    'webpack_loader',
 ]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'static/', # build/static/ react folder αποθηκεύει όλα τα js/css files
+        'STATS_FILE': os.path.join(BASE_DIR, 'chat_app_react_frontend/build/webpack-stats.json'),
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,10 +77,49 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware', # html minification
     'htmlmin.middleware.MarkRequestMiddleware', # html minification per request
+    'corsheaders.middleware.CorsMiddleware', # Browser CORS Policy for Django-React communication
 
 #   django app .      filename        .       class
     'chat_app.loginRequired_middleware.LoginRequiredMiddleware',
 ]
+
+
+'''
+    Σενάριο 1
+    Η Django τρέχει σε localhost:8000 ενώ η React σε localhost:3000
+    Για λόγους ασφαλείας, η CORS Policy ενός browser μπλοκάρει την επικοινωνία μεταξύ διαφορετικών origins {protocol+IP+post}
+    Άρα, για να επικοινωνεί το react-frontend με το django-backend:
+        α) φτιάχνω μια CORS Whitelist για το localhost:3000
+        β) απαιτείται npm start
+
+            if DEBUG: # http
+                CORS_ALLOWED_ORIGINS = [
+                    "http://localhost:3000",
+                    "http://127.0.0.1:3000",
+                ]
+            else: # https
+                CORS_ALLOWED_ORIGINS = [
+                    "https://localhost:3000",
+                    "https://127.0.0.1:3000",
+                ]
+
+    Σενάριο 2
+    Η Django τρέχει σε localhost:8000 ενώ η React σερβίρεται ως django-template στο ίδιο localhost:8000
+    Δηλαδή η react φορτώνεται ως static files από την django
+    Συνεπώς:
+        α) δεν απαιτείται npm start
+        β) δεν απαιτείται Browser CORS Whitelist για το localhost:3000
+'''
+if DEBUG: # http
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+    ]
+else: # https
+    CORS_ALLOWED_ORIGINS = [
+        "https://localhost:8000",
+        "https://127.0.0.1:8000",
+    ]
 
 ROOT_URLCONF = 'Chatfolio.urls'
 
@@ -70,9 +128,10 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # Αν υπάρχει φάκελος templates εκτός των apps, πρέπει να το δηλώσω για να ψάχνει και εκεί
         'DIRS': [
-            BASE_DIR / 'templates',
+            BASE_DIR / 'templates', # django apps templates
+            os.path.join(BASE_DIR, 'chat_app_react_frontend/build'), # react apps templates
             ],
-        'APP_DIRS': True, # true: ψάχνει για αρχεία html από τον φάκελο templates όλων των apps
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -134,7 +193,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_ROOT = BASE_DIR / 'productionStatic'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [
+    BASE_DIR / 'static', # django static/ folders
+
+    # Καλό είναι να ορίσω ολόκληρο το react build/ folder και όχι μόνο τον react static/ subfolder
+    os.path.join(BASE_DIR, 'chat_app_react_frontend/build/'), # react build/ folder
+]
 
 # Media files: Αρχεία που ανεβάζουν οι χρήστες (πχ φωτογραφία προφίλ)
 MEDIA_URL = '/media/'

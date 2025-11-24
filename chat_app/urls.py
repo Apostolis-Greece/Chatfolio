@@ -19,6 +19,7 @@ from . import views
 #from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    path('', views.chat_view, name='chat_view'),
+    path('', views.chat_view, name='chat_view'), # HTML View
+    path('api/', views.chat_api, name='chat_api'), # JSON API Endpoint
     #path('', login_required(views.chat_view), name='chat_view'),
 ]

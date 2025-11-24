@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 # Ο χειριστής που ενεργοποιείται μόλις παραχθεί HTTP 404, ο οποίος καλεί το αρμόδιο django view
 handler404 = 'accounts_app.views.error_404'
 
+
+# Σύνδεση της εφαρμογής με το κάθε django-app (δηλ. με το αντίστοιχο αρχείο urls.py)
 urlpatterns = [
     path('', include('accounts_app.urls')),
     path('chat/', include('chat_app.urls')),

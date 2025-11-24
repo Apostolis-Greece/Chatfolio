@@ -2,11 +2,12 @@
 from django.shortcuts import render
 from django.conf import settings
 import os
+from django.http import JsonResponse
 #from django.contrib.auth.decorators import login_required
 
 
 #@login_required
-def chat_view(request):
+def chat_view(request): # HTML View
     email = request.user.email
     country = request.user.country
 
@@ -29,3 +30,9 @@ def get_user_profile_image(user):
         return settings.STATIC_URL + 'photos/default-profile.png'
     else:
         return user.profile_image.url
+
+
+
+
+def chat_api(request):
+    return render(request, 'index.html')
