@@ -28,7 +28,8 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 - **🍪 Cookie Protection:** All cookies are protected against a) `CSRF attacks`, b) `XSS attacks`, and c) `malicious JavaScript` that attempts to read their contents.  
 - **🔑 Secure Password Storage:**  
   - Passwords are salted and hashed iteratively to protect against `Rainbow Table attacks`.  
-  - Users with identical passwords will have distinct hashes stored in the database.  
+  - Users with identical passwords will have distinct hashes stored in the database.
+- **🔐 Securely Load Environment Variables:** Sensitive settings such as `SECRET_KEY` and `DEBUG` are stored in the .env file (which is not uploaded on GitHub if we set the .gitignore properly) rather than in the publicly available settings.py.
 - **🔄 Database & Filesystem Sync:** Media files are consistently synchronized with the database to ensure integrity.
 - **🛡️ Secure HTTPS Redirections:** Sensitive requests are enforced to use HTTPS to guarantee encrypted and secure data transfer.
 - **⚛️ Atomic Transactions:** Changes to the database and media files are handled atomically where appropriate, preventing partial updates and ensuring data integrity.  
