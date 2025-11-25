@@ -110,6 +110,7 @@ MIDDLEWARE = [
         α) δεν απαιτείται npm start
         β) δεν απαιτείται Browser CORS Whitelist για το localhost:3000
 '''
+'''
 if DEBUG: # http
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:8000",
@@ -120,6 +121,13 @@ else: # https
         "https://localhost:8000",
         "https://127.0.0.1:8000",
     ]
+'''
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+
+
 
 ROOT_URLCONF = 'Chatfolio.urls'
 
