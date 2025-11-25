@@ -4,6 +4,13 @@
 Chatfolio is a full-stack web development portfolio project that is built with several web technologies. It consists of two main Django Apps: a) `accounts_app` and b) `chat_app` (under development). The project emphasizes **security**, **performance**, and **user experience**, showcasing best practices in web development.
 
 
+## 🔧 Technologies
+- 🐍 Django, Django Rest, Python, SQLite
+- 🌐 HTML5, CSS3, JavaScript (ES6), jQuery, React, Vite
+- ⚡ Asynchronous JSON Requests
+- 🧭 Additional tools for minification, spritesheet generation, and async handling
+
+
 ### 🎬 Demo
 <div>
   <p align="center">
@@ -59,13 +66,6 @@ Chatfolio is a full-stack web development portfolio project that is built with s
 - **🍪 💾 Cookies & localStorage:** Session management, preferences, and user interactions.  
 - **🧹💧 No Memory Leakage:** No Global Variables, Single-use Event Listeners are effectively deleted, etc, ensuring the browser does not slow down or crash.
 - **🛠️ Maintainance & Scalability:** Clean, easily readable and maintainable code, well-organised in many files/folders.
-
-
-## 🔧 Technologies
-- 🐍 Django, Python, SQLite
-- 🌐 HTML, CSS, JavaScript, jQuery
-- ⚡ Asynchronous JSON Requests
-- 🧭 Additional tools for minification, spritesheet generation, and async handling
 
 
 ## ⚙️ Installation & Setup
